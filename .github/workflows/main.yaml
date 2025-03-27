@@ -1,0 +1,18 @@
+name: Docker actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: ./
+        with:
+          who-to-greet: "withcenterdev9"
+      - name: Get the output time
+        run: echo "Time is ${{steps.hello.outputs.time}}"
